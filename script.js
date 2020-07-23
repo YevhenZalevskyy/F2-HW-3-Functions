@@ -28,7 +28,7 @@ function restOfPay (pay, vat1, vat2) {
 
 // #5  Віпадкове ціле число з диапазону
 function getRandomInteger(N, M) {
-  let integer = Math.round(Math.random()*(M - N)) + N;
+  let integer = Math.round(Math.random() * (M - N)) + N;
   return integer;
 }
 
@@ -44,15 +44,13 @@ function countChar(text, char) {
 }
 
 // #8  Випадковий пароль
-// function randomPassword(passLenght) {
-//     let password = '';
-//     for(let i = 0; i < passLenght; i++) {
-//         password[i] = Math.floor(Math.random() * 10);
-//         console.log(password[0]);
-//         password += password[i];
-//     }
-//     return password;
-// }
+function randomPassword(passLenght) {
+    let password = '';
+    for(let i = 0; i < passLenght; i++) {
+        password += Math.floor(Math.random() * 10);
+    }
+    return password;
+}
 
 // #9  Видалення певного символу з рядка
 function deleteChar (text, char) {
@@ -64,6 +62,14 @@ function deleteChar (text, char) {
   return newText;
 }
 
+
+//  Реверс строки
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+//
+// reverseString("hello");
+
 // Вивід результатів
 document.writeln(`
 Function #1: ${getMaxDigit(0129210)}<br>
@@ -73,7 +79,7 @@ Function #4: ${restOfPay(1000, 17, 3)}<br>
 Function #5: ${getRandomInteger(20, 90)}<br>
 Function #6: ${countChar('Hello WORLD!', 'L')}<br>
 Function #7: <br>
-Function #8: <br>
+Function #8: ${randomPassword(8)}<br>
 Function #9: ${deleteChar("AbracadabrA", "a")}<br>
 Function #10: <br>
 Function #11: <br>
