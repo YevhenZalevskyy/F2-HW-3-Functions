@@ -5,10 +5,31 @@ function getMaxDigit(number) {
   return Math.max(...arr);
 }
 
+// №2 Ступінь числа
+function powerOfNumber(number, power) {
+  let result = 1;
+  for (let i = 0; i < power; i++) {
+     result = result * number;
+   }
+  return result;
+}
+
 // #3 Перша літара Велика
 function firstLetterOfName(name) {
   name = name.toLowerCase();
   return name[0].toUpperCase() + name.slice(1);
+}
+
+//#4  Залишок від оплати
+function restOfPay (pay, vat1, vat2) {
+  const rest = pay - (pay * 0.01 * (vat1 + vat2));
+  return rest;
+}
+
+// #5  Віпадкове ціле число з диапазону
+function getRandomInteger(N, M) {
+  let integer = Math.round(Math.random()*(M - N)) + N;
+  return integer;
 }
 
 // #6  Скількі разів повторюється символ
@@ -22,11 +43,38 @@ function countChar(text, char) {
     return counter;
 }
 
+// #8  Випадковий пароль
+// function randomPassword(passLenght) {
+//     let password = '';
+//     for(let i = 0; i < passLenght; i++) {
+//         password[i] = Math.floor(Math.random() * 10);
+//         console.log(password[0]);
+//         password += password[i];
+//     }
+//     return password;
+// }
+
+// #9  Видалення певного символу з рядка
+function deleteChar (text, char) {
+  let newText = '';
+  for (let i = 0; i < text.length; i++) {
+    if (char.toUpperCase() !== text[i].toUpperCase())
+      newText += text[i]
+    }
+  return newText;
+}
 
 // Вивід результатів
 document.writeln(`
 Function #1: ${getMaxDigit(0129210)}<br>
-Function #3: ${firstLetterOfName("iVaN")}<br>
-Function #6: ${countChar("Hello WORLD!", "L")}<br>
-
+Function #2: ${powerOfNumber(2, 5)}<br>
+Function #3: ${firstLetterOfName('iVaN')}<br>
+Function #4: ${restOfPay(1000, 17, 3)}<br>
+Function #5: ${getRandomInteger(20, 90)}<br>
+Function #6: ${countChar('Hello WORLD!', 'L')}<br>
+Function #7: <br>
+Function #8: <br>
+Function #9: ${deleteChar("AbracadabrA", "a")}<br>
+Function #10: <br>
+Function #11: <br>
  `);
