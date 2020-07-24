@@ -43,6 +43,19 @@ function countChar(text, char) {
     return counter;
 }
 
+// #7  Конвертувати валюту
+function convertCurrency(currencyAmount) {
+  let convert = '';
+  if (currencyAmount.toLowerCase().includes('uah')) {
+    convert = (parseInt(currencyAmount).toString() / 28) + '$';
+  } else if (currencyAmount.includes('$')) {
+    convert = (parseInt(currencyAmount).toString() * 28) + 'UAH';
+  } else {
+    return 'Other currency is not convertible';
+  }
+  return convert;
+}
+
 // #8  Випадковий пароль
 function randomPassword(passLenght) {
     let password = '';
@@ -62,13 +75,30 @@ function deleteChar (text, char) {
   return newText;
 }
 
+// #10  Виявлення раку літерального (перевертня)
+function isPalyndrom(str) {
+  let arr = [];
+  arr = str.split('');
+  let str2 = arr.reverse().join('');
+  if (str === str2) {
+    return str.toUpperCase() + ' is palyndrom';
+  } else {
+    return str.toUpperCase() + ' not is palyndrom';
+  }
+  console.log(str2);
+}
 
-//  Реверс строки
-// function reverseString(str) {
-//     return str.split("").reverse().join("");
-// }
-//
-// reverseString("hello");
+// Видалення літер, якіх більше одної
+function deleteDuplicateLetter(str) {
+    let str1 = str.toLowerCase();
+    let newStr = "";
+    for(let i = 0; i < str.length; i++) {
+        if(str1.indexOf(str1[i]) === str1.lastIndexOf(str1[i])) {
+            newStr += str[i];
+        }
+    }
+  return newStr;
+}
 
 // Вивід результатів
 document.writeln(`
@@ -78,9 +108,9 @@ Function #3: ${firstLetterOfName('iVaN')}<br>
 Function #4: ${restOfPay(1000, 17, 3)}<br>
 Function #5: ${getRandomInteger(20, 90)}<br>
 Function #6: ${countChar('Hello WORLD!', 'L')}<br>
-Function #7: <br>
+Function #7: ${convertCurrency('10$')}, ${convertCurrency('280UaH')}, ${convertCurrency('100€')}<br>
 Function #8: ${randomPassword(8)}<br>
 Function #9: ${deleteChar("AbracadabrA", "a")}<br>
-Function #10: <br>
-Function #11: <br>
+Function #10: ${isPalyndrom('bonbon')}, ${isPalyndrom('radar')}<br>
+Function #11: ${deleteDuplicateLetter('бабушка Ела ПельмЕни')}<br>
  `);
