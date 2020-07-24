@@ -1,7 +1,7 @@
 
 // #1  Найбільша цифра
 function getMaxDigit(number) {
-  const arr = Math.abs(number.toString());
+  const arr = Math.abs(number).toString();
   return Math.max(...arr);
 }
 
