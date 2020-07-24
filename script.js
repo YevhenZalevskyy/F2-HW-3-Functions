@@ -1,7 +1,7 @@
 
 // #1  Найбільша цифра
 function getMaxDigit(number) {
-  const arr = number.toString().slice();
+  const arr = Math.abs(number.toString());
   return Math.max(...arr);
 }
 
@@ -16,8 +16,7 @@ function powerOfNumber(number, power) {
 
 // #3 Перша літара Велика
 function firstLetterOfName(name) {
-  name = name.toLowerCase();
-  return name[0].toUpperCase() + name.slice(1);
+  return name[0].toUpperCase() + name.slice(1).toLowerCase();
 }
 
 //#4  Залишок від оплати
@@ -57,10 +56,10 @@ function convertCurrency(currencyAmount) {
 }
 
 // #8  Випадковий пароль
-function randomPassword(passLenght) {
+function randomPassword(passLenght = 8) {
     let password = '';
     for(let i = 0; i < passLenght; i++) {
-        password += Math.floor(Math.random() * 10);
+      password += Math.floor(Math.random() * 10);
     }
     return password;
 }
@@ -77,15 +76,13 @@ function deleteChar (text, char) {
 
 // #10  Виявлення раку літерального (перевертня)
 function isPalyndrom(str) {
-  let arr = [];
-  arr = str.split('');
-  let str2 = arr.reverse().join('');
-  if (str === str2) {
-    return str.toUpperCase() + ' is palyndrom';
+  let str1 = str.replace(/\s/g, '').toLowerCase();
+  let str2 = str1.split('').reverse().join('');
+  if (str1 === str2) {
+    return `"${str}" is palyndrom`;
   } else {
-    return str.toUpperCase() + ' not is palyndrom';
+    return `"${str}" not is palyndrom`;
   }
-  console.log(str2);
 }
 
 // Видалення літер, якіх більше одної
@@ -109,8 +106,8 @@ Function #4: ${restOfPay(1000, 17, 3)}<br>
 Function #5: ${getRandomInteger(20, 90)}<br>
 Function #6: ${countChar('Hello WORLD!', 'L')}<br>
 Function #7: ${convertCurrency('10$')}, ${convertCurrency('280UaH')}, ${convertCurrency('100€')}<br>
-Function #8: ${randomPassword(8)}<br>
+Function #8: ${randomPassword(4)}<br>
 Function #9: ${deleteChar("AbracadabrA", "a")}<br>
-Function #10: ${isPalyndrom('bonbon')}, ${isPalyndrom('radar')}<br>
+Function #10: ${isPalyndrom('Bonbon')}, ${isPalyndrom('Radar')}, ${isPalyndrom('Я несу гусеня')}<br>
 Function #11: ${deleteDuplicateLetter('бабушка Ела ПельмЕни')}<br>
  `);
